@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="tabs">
+      <div class="tab-item active">
+        <i class="tab-icon fas fa-code"></i>
+        React
+      </div>
+      <div class="tab-item">
+        <i class="tab-icon fas fa-cog"></i>
+        Angular
+      </div>
+      <div class="tab-item">
+        <i class="tab-icon fas fa-plus-circle"></i>
+        Ember
+      </div>
+      <div class="tab-item">
+        <i class="tab-icon fas fa-pen-nib"></i>
+        Vue.js
+      </div>
+      <div class="line"></div>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane active">
+        <h2>React</h2>
+        <p>
+          Lots of people use React as the V in MVC. Since React makes no assumptions about the rest of your technology
+          stack, it's easy to try it out on a small feature in an existing project.
+        </p>
+      </div>
+      <div class="tab-pane">
+        <h2>Angular</h2>
+        <p>
+          HTML is great for declaring static documents, but it falters when we try to use it for declaring dynamic views
+          in web-applications. AngularJS lets you extend HTML vocabulary for your application. The resulting environment
+          is extraordinarily expressive, readable, and quick to develop.
+        </p>
+      </div>
+      <div class="tab-pane">
+        <h2>Ember</h2>
+        <p>
+          Ember.js is an open-source JavaScript application framework, based on the model-view-controller (MVC) pattern.
+          It allows developers to create scalable single-page web applications by incorporating common idioms and best
+          practices into the framework. What is your favorite JS framework?
+        </p>
+      </div>
+      <div class="tab-pane">
+        <h2>Design</h2>
+        <p>
+          Design is the process of imagining and planning the creation of objects, systems, buildings, vehicles, etc. It
+          is about creating solutions for people.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+
+    const tabs = $$('.tab-item');
+    const panes = $$('.tab-pane');
+
+    const tabActive = $('.tab-item.active');
+    
+    const line = $('.tabs .line');
+    line.style.setProperty('left', tabActive.offsetLeft + 'px');
+    line.style.setProperty('width', tabActive.offsetWidth + 'px');
+
+    tabs.forEach((tab, index) => {
+      const pane = panes[index];
+      tab.onclick = function () {
+        line.style.setProperty('left', this.offsetLeft + 'px');
+        line.style.setProperty('width', this.offsetWidth + 'px');
+
+        $('.tab-item.active').classList.remove('active');
+        $('.tab-pane.active').classList.remove('active');
+
+        this.classList.add('active');
+        pane.classList.add('active');
+      }
+    })
+  </script>
+</body>
+
+</html>
