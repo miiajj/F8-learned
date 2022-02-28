@@ -33,11 +33,11 @@
                 const toast = document.createElement('div');
                 // auto remove toast
                 const autoRemoveId = setTimeout(() => {
-                   main.removeChild(toast); 
+                    main.removeChild(toast);
                 }, 6000);
                 // click remove toast
-                toast.onclick = function(e) {
-                    if(e.target.closest('.toast__close')) {
+                toast.onclick = function (e) {
+                    if (e.target.closest('.toast__close')) {
                         main.removeChild(toast);
                         clearTimeout(autoRemoveId);
                     }
@@ -66,6 +66,7 @@
 
             }
         }
+
         function showSuccessToast() {
             toast({
                 title: 'Success',
@@ -81,9 +82,8 @@
                 type: 'error'
             });
         }
-
-
     </script>
+    <script src="../common.js"></script>
 </body>
 
 </html>
